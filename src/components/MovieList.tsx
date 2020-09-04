@@ -1,11 +1,27 @@
-import React from 'react';
+import React, { FC } from 'react';
+import MovieCard from './MovieCard';
 
-interface Props {
-  // movieList: 
+interface Movie {
+  title: string;
+  poster: string;
 }
 
-const MovieList : FC<Props> = ({movieList}) => {
+interface Props {
+  moviesList: Movie[];
+}
 
+const MovieList : FC<Props> = ({moviesList}) => {
+  if (moviesList.length === 0) return <div>no results</div>
+  
+  return (
+  <div>
+    {
+      moviesList.map(movie => (
+         <MovieCard poster={movie.poster} title={movie.title} />
+      ))
+    }
+  </div>
+  )
 }
 
 export default MovieList;
