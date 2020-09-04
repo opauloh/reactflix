@@ -131,7 +131,7 @@ const mockData = [
 
 
 export const empty = () => 
-  <MovieList movieList={} />
+  <MovieList moviesList={[]} />
 
 export const list = () => 
-  <MovieList movieList={mockData} />
+  <MovieList moviesList={mockData} />
