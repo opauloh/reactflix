@@ -1,4 +1,36 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# reactflix
+This project is for study purposes, it realized during our KCD - Typescript and React's Club Classes, provided by  [Kent C Dodds](https://kentcdodds.com/clubs/).
+
+## club-react-ts
+I want to say thanks to [@fmoliveira](https://github.com/fmoliveira), for accepting to mentor this React+TS Club, thanks for his time, and for sharing his valuable knowledge with industry experience in React and Typescript.
+
+[Club Roadmap and Documentation](https://www.notion.so/React-with-TypeScript-647fb4607a0f417daca4a82a6a857769)
+
+### things we covered so far
+- React + TS Patterns : Some standards like declaring interface with Props name:
+```tsx
+interface Props {
+  title: string;
+  poster: string;
+}
+```
+and using it: 
+```tsx
+const MovieCard: FC<Props> = ({title, poster}) => (
+  <div className={styles.card}>
+    <img className={styles.image} src={`https://image.tmdb.org/t/p/w500/${poster}`} alt={`Poster for movie ${title}`} />
+    <p>{title}</p>
+  </div>
+)
+```
+
+- Storybook : How to connect storybook in our app, and take benefits from it for development purposes while creating a living documentation.
+- 
+
+### useful extensions
+- error lens: This extension can provide more visible errors as we type, pretty useful when using typescript
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) using the typescript template.
 
 ## Available Scripts
 
@@ -27,18 +59,10 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+### `yarn storybook`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Starts storybook webpack server
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### `yarn build-storybook`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Build storybook for production
