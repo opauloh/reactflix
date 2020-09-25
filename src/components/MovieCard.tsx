@@ -9,7 +9,11 @@ interface Props {
 
 const MovieCard: FC<Props> = ({title, poster}) => (
   <div className={styles.card}>
-    <img className={styles.image} src={`https://image.tmdb.org/t/p/w500/${poster}`} alt={`Poster for movie ${title}`} />
+    <img
+      alt={`Poster for movie ${title}`}
+      className={styles.image}
+      src={`https://image.tmdb.org/t/p/w500/${poster}`}
+    />
     <p>{title}</p>
   </div>
 )
