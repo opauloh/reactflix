@@ -1,30 +1,25 @@
-import React, { FC } from 'react';
-import MovieCard from './MovieCard';
+import React, { FC } from "react";
+import { Movie } from "../api/getMovies";
+import MovieCard from "./MovieCard";
 
-import styles  from "./MovieList.module.css";
+import styles from "./MovieList.module.css";
 
-
-interface Movie {
-  title: string;
-  poster: string;
-}
+type MoviePreview = Pick<Movie, "id" | "title" | "poster">;
 
 interface Props {
-  moviesList: Movie[];
+  moviesList?: MoviePreview[];
 }
 
-const MovieList : FC<Props> = ({ moviesList }) => {
-  if (moviesList.length === 0) return <div>no results</div>
-  
+const MovieList: FC<Props> = ({ moviesList }) => {
+  if (!moviesList || moviesList.length === 0) return <div>no results</div>;
+
   return (
-  <div className={styles.list}>
-    {
-      moviesList.map(movie => (
-         <MovieCard poster={movie.poster} title={movie.title} />
-      ))
-    }
-  </div>
-  )
-}
+    <div className={styles.list}>
+      {moviesList.map(({ id, title, poster }) => (
+        <MovieCard key={id} poster={poster} title={title} />
+      ))}
+    </div>
+  );
+};
 
 export default MovieList;
