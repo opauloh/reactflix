@@ -16,7 +16,7 @@ const MovieList: FC<Props> = ({ moviesList }) => {
   return (
     <div className={styles.list}>
       {moviesList.map(({ id, title, poster }) => (
-        <MovieCard key={id} poster={poster} title={title} />
+        <MovieCard key={id} id={id} poster={poster} title={title} />
       ))}
     </div>
   );
