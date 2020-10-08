@@ -3,6 +3,7 @@ import fetch from "isomorphic-fetch";
 import { Movie } from "./getMovies";
 
 const API_URL = "https://api.themoviedb.org/3/search/movie";
+const IMAGE_PREFIX = "https://image.tmdb.org/t/p/w500/";
 const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 
 // types returned by the api
@@ -26,7 +27,7 @@ const searchMovies = async (query: string): Promise<Movie[]> => {
       data.results.map((movie) => ({
         id: movie.id,
         title: movie.title,
-        poster: movie.poster_path,
+        poster: IMAGE_PREFIX + movie.poster_path,
       }))
     );
 };
